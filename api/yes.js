@@ -9,7 +9,7 @@ export default async function handler(req, res) {
         },
         body: JSON.stringify({
           from: "onboarding@resend.dev",
-          to: "YOUR_EMAIL@gmail.com",
+          to: "pavanbhr3@gmail.com",
           subject: "She clicked YES 😌",
           html: `
             <h2>YES was clicked ❤️</h2>
