@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Important Question 😌</title>
+
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      overflow: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .btn-container {
+      position: relative;
+      width: 300px;
+      height: 150px;
+    }
+
+    button {
+      padding: 12px 28px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      border: none;
+    }
+
+    #yesBtn {
+      background-color: #28a745;
+      color: white;
+      margin-right: 20px;
+    }
+
+    #noBtn {
+      background-color: #dc3545;
+      color: white;
+      position: absolute;
+    }
+
+    .success-message {
+      margin-top: 30px;
+      font-size: 20px;
+      color: #222;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>I'm planning to go to Kahale. Will you come with me? 😏</h1>
+
+  <div class="btn-container">
+      <button type="button" id="yesBtn">Yes 😌</button>
+      <button id="noBtn">No 😅</button>
+  </div>
+
+  <div class="success-message" id="successMsg">
+    I knew it 😌❤️
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const container = document.querySelector(".btn-container");
+
+    noBtn.addEventListener("mouseover", () => {
+      const maxX = container.clientWidth - noBtn.offsetWidth;
+      const maxY = container.clientHeight - noBtn.offsetHeight;
+
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      noBtn.style.left = randomX + "px";
+      noBtn.style.top = randomY + "px";
+    });
+
+    // YES BUTTON EMAIL TRIGGER
+    document.getElementById("yesBtn").addEventListener("click", async () => {
+      await fetch("/api/yes", {
+        method: "POST"
+      });
+
+      document.getElementById("successMsg").style.display = "block";
+    });
+  </script>
+
+</body>
+</html>
