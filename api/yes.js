@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     try {
       await resend.emails.send({
         from: "onboarding@resend.dev",
-        to: "YOUR_EMAIL@gmail.com",  // <-- CHANGE THIS
+        to: "pavanbhr3@gmail.com",  // <-- CHANGE THIS
         subject: "She clicked YES 😌",
         html: `
           <h2>YES was clicked ❤️</h2>
